@@ -1,0 +1,26 @@
+{
+    "name": "10quality/wpmvc-addon-resources",
+    "description": "WordPress MVC add-on resources (common assets).",
+    "license": "MIT",
+    "keywords": ["wordpress","mvc","addon","wpmvc","resources","assets"],
+    "authors": [
+        {
+            "name": "10 Quality",
+            "email": "info@10quality.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "10quality/wpmvc-core": "^3.1",
+        "10quality/wpmvc-addon": "1.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "WPMVC\\Addon\\Resources\\": "src"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "minimum-stability": "dev"
+}
