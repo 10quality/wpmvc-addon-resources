@@ -7,35 +7,32 @@ require_once __DIR__.'/../vendor/10quality/wp-file/tests/framework/class-wp-file
 $wp_filesystem = new WP_Filesystem;
 $styles = [];
 $scripts = [];
-function wp_register_style( $id )
-{
+function wp_register_style( $id ) {
     global $styles;
     $styles[$id] = 'registered';
 }
-function wp_register_script( $id )
-{
+function wp_register_script( $id ) {
     global $scripts;
     $scripts[$id] = 'registered';
 }
-function wp_enqueue_style( $id )
-{
+function wp_enqueue_style( $id ) {
     global $styles;
     $styles[$id] = 'enqueued';
 }
-function wp_enqueue_script( $id )
-{
+function wp_enqueue_script( $id ) {
     global $scripts;
     $scripts[$id] = 'enqueued';
 }
-function get_locale()
-{
+function get_locale() {
     return 'en';
 }
-function apply_filters( $value )
-{
-    return $value;
+function home_url( $path = null, $scheme = 'http' ) {
+    return ( $scheme ? $scheme : 'http'  ) . '://www.test.com' . ( $path ? $path : '/' );
 }
-function home_url( $endpoint = '/' )
-{
-    return 'http://localhost' . $endpoint;
+
+function network_home_url( $path = null, $scheme = 'http' ) {
+    return ( $scheme ? $scheme : 'http'  ) . '://network.test.com' . ( $path ? $path : '/' );
+}
+function apply_filters( $filter, $value ) {
+    return $value;
 }

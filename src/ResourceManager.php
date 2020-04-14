@@ -30,7 +30,7 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'js/jquery.hide-show.js', __FILE__ ),
+                    'url' => addon_resource_url( 'js/jquery.hide-show.js', __FILE__ ),
                     'dep' => ['jquery'],
                     'version' => '1.0.5',
                 ];
@@ -39,13 +39,13 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'style',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'css/repeater.css', __FILE__ ),
+                    'url' => addon_resource_url( 'css/repeater.css', __FILE__ ),
                     'version' => '1.0.1',
                 ];
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'js/jquery.repeater.js', __FILE__ ),
+                    'url' => addon_resource_url( 'js/jquery.repeater.js', __FILE__ ),
                     'dep' => ['jquery', 'wpmvc-hideshow'],
                     'version' => '1.0.5',
                 ];
@@ -54,7 +54,7 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'style',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'css/choose.css', __FILE__ ),
+                    'url' => addon_resource_url( 'css/choose.css', __FILE__ ),
                     'version' => '1.0.0',
                 ];
                 break;
@@ -62,7 +62,7 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'style',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'css/radio.css', __FILE__ ),
+                    'url' => addon_resource_url( 'css/radio.css', __FILE__ ),
                     'version' => '1.0.0',
                 ];
                 break;
@@ -70,13 +70,13 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'style',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'css/switch.css', __FILE__ ),
+                    'url' => addon_resource_url( 'css/switch.css', __FILE__ ),
                     'version' => '1.0.4',
                 ];
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'js/jquery.switch.js', __FILE__ ),
+                    'url' => addon_resource_url( 'js/jquery.switch.js', __FILE__ ),
                     'dep' => ['jquery'],
                     'version' => '1.0.4',
                 ];
@@ -85,7 +85,7 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'style',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'css/font-awesome.min.css', __FILE__ ),
+                    'url' => addon_resource_url( 'css/font-awesome.min.css', __FILE__ ),
                     'version' => '4.7.0',
                 ];
                 break;
@@ -93,17 +93,17 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'style',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'css/select2.min.css', __FILE__ ),
+                    'url' => addon_resource_url( 'css/select2.min.css', __FILE__ ),
                     'version' => '4.0.13',
                 ];
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'js/select2.min.js', __FILE__ ),
+                    'url' => addon_resource_url( 'js/select2.min.js', __FILE__ ),
                     'dep' => ['jquery'],
                     'version' => '4.0.13',
                 ];
-                $filename = addon_assets_url( 'js/i18n/' . $locale . '.js', __FILE__ );
+                $filename = addon_resource_url( 'js/i18n/' . $locale . '.js', __FILE__ );
                 if ( File::auth()->exists( $filename ) )
                     $resources[] = [
                         'type' => 'script',
@@ -117,13 +117,13 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'style',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'css/select2.css', __FILE__ ),
+                    'url' => addon_resource_url( 'css/select2.css', __FILE__ ),
                     'version' => '1.0.5',
                 ];
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'js/jquery.select2.js', __FILE__ ),
+                    'url' => addon_resource_url( 'js/jquery.select2.js', __FILE__ ),
                     'dep' => ['jquery'],
                     'version' => '1.0.5',
                 ];
@@ -132,17 +132,17 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'style',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'css/spectrum.css', __FILE__ ),
+                    'url' => addon_resource_url( 'css/spectrum.css', __FILE__ ),
                     'version' => '1.8.0',
                 ];
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'js/spectrum.js', __FILE__ ),
+                    'url' => addon_resource_url( 'js/spectrum.js', __FILE__ ),
                     'dep' => ['jquery'],
                     'version' => '1.8.0',
                 ];
-                $filename = addon_assets_url( 'js/i18n/jquery.spectrum-' . $locale . '.js', __FILE__ );
+                $filename = addon_resource_url( 'js/i18n/jquery.spectrum-' . $locale . '.js', __FILE__ );
                 if ( File::auth()->exists( $filename ) )
                     $resources[] = [
                         'type' => 'script',
@@ -156,7 +156,7 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'js/jquery.colorpicker.js', __FILE__ ),
+                    'url' => addon_resource_url( 'js/jquery.colorpicker.js', __FILE__ ),
                     'dep' => ['jquery', 'spectrum'],
                     'version' => '1.0.5',
                 ];
@@ -165,13 +165,13 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'style',
                     'id' => 'jquery-ui-theme',
-                    'url' => addon_assets_url( 'css/jquery-ui.theme.min.css', __FILE__ ),
+                    'url' => addon_resource_url( 'css/jquery-ui.theme.min.css', __FILE__ ),
                     'version' => '1.12.1',
                 ];
                 $resources[] = [
                     'type' => 'style',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'css/datepicker.css', __FILE__ ),
+                    'url' => addon_resource_url( 'css/datepicker.css', __FILE__ ),
                     'dep' => ['jquery-ui-theme'],
                     'version' => '1.12.1',
                 ];
@@ -180,7 +180,7 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'js/jquery.datepicker.js', __FILE__ ),
+                    'url' => addon_resource_url( 'js/jquery.datepicker.js', __FILE__ ),
                     'dep' => ['jquery-ui-datepicker'],
                     'version' => '1.0.5',
                 ];
@@ -189,13 +189,13 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'style',
                     'id' => 'jquery-datetimepicker',
-                    'url' => addon_assets_url( 'css/jquery.datetimepicker.min.css', __FILE__ ),
+                    'url' => addon_resource_url( 'css/jquery.datetimepicker.min.css', __FILE__ ),
                     'version' => '2.5.21',
                 ];
                 $resources[] = [
                     'type' => 'script',
                     'id' => 'jquery-datetimepicker',
-                    'url' => addon_assets_url( 'js/jquery.datetimepicker.full.min.js', __FILE__ ),
+                    'url' => addon_resource_url( 'js/jquery.datetimepicker.full.min.js', __FILE__ ),
                     'dep' => ['jquery'],
                     'version' => '2.5.21',
                 ];
@@ -204,7 +204,7 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'js/jquery.datetimepicker.js', __FILE__ ),
+                    'url' => addon_resource_url( 'js/jquery.datetimepicker.js', __FILE__ ),
                     'dep' => ['jquery-datetimepicker'],
                     'version' => '1.0.5',
                 ];
@@ -214,7 +214,7 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
-                    'url' =>  addon_assets_url( 'js/jquery.wp-media-uploader.min.js', __FILE__ ),
+                    'url' =>  addon_resource_url( 'js/jquery.wp-media-uploader.min.js', __FILE__ ),
                     'dep' => ['jquery', 'jquery-ui-core'],
                     'version' => '1.2.0',
                 ];
@@ -223,13 +223,13 @@ class ResourceManager
                 $resources[] = [
                     'type' => 'style',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'css/media.css', __FILE__ ),
+                    'url' => addon_resource_url( 'css/media.css', __FILE__ ),
                     'version' => '1.0.0',
                 ];
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
-                    'url' => addon_assets_url( 'js/jquery.media.js', __FILE__ ),
+                    'url' => addon_resource_url( 'js/jquery.media.js', __FILE__ ),
                     'dep' => ['wordpress-media-uploader'],
                     'version' => '1.0.5',
                 ];
