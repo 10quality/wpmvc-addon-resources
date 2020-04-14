@@ -61,6 +61,16 @@ if ( ! function_exists( 'addon_resource_url' ) ) {
             'asset_base_url',
             rtrim( $is_network ? network_home_url( '/', $scheme ) : home_url( '/', $scheme ), '/' )
         );
+        // Polylang support
+        if ( function_exists( 'pll_current_language' ) ) {
+            $lang = pll_current_language( 'slug' );
+            if ( strpos( $url, '/' . $lang ) !== false)
+                $url = str_replace( '/' . $lang, '', $url );
+        }
+        // WPML support
+        if ( function_exists( 'icl_object_id' ) && defined( 'ICL_LANGUAGE_CODE' ) ) {
+            $url = preg_replace( '#([a-z])/' . ICL_LANGUAGE_CODE . '#', '\\1', $url );
+        }
         // Clean base path
         $route = preg_replace( '/.+?(?=wp-content)/', '', $route );
         // Clean project relative path
