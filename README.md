@@ -16,11 +16,9 @@ composer install 10quality/wpmvc-addon-resources --no-plugins
 Add this package as your add-on dependencies (`"require"`):
 ```json
 {
-    ...
     "require": {
         "10quality/wpmvc-addon-resources": "1.0.*"
     },
-    ...
 }
 ```
 
@@ -71,15 +69,17 @@ wpmvc_enqueue_addon_resource( $resource_id );
 | `spectrum` | Spectrum colorpicker resources. | *css*, *js* |
 | `datetimepicker` | jQuery datetimepicker resources. | *css*, *js* |
 | `jquery-ui-datepicker` | jQuery UI datepicker resources. | *css* |
+| `wordpress-media-uploader` | WordPress media uploader resources. | *js* |
 | `wpmvc-hideshow` | Hide and show resources. | *js* |
 | `wpmvc-repeater` | Repeater resources (depends on `wpmvc-hideshow`). | *css*, *js* |
 | `wpmvc-choose` | Choose resources. | *css* |
 | `wpmvc-radio` | Redio group resources. | *css* |
 | `wpmvc-switch` | Redio group resources. | *css*, *js* |
-| `wpmvc-select2` | Select2 implementation resources (depends on `select2`). | *js* |
+| `wpmvc-select2` | Select2 implementation resources (depends on `select2`). | *css*, *js* |
 | `wpmvc-colorpicker` | Colorpicker implementation resources (depends on `spectrum`). | *js* |
 | `wpmvc-datepicker` | Datepicker implementation resources (depends on `jquery-ui-datepicker`). | *js* |
 | `wpmvc-datetimepicker` | Datetimepicker implementation resources (depends on `datetimepicker`). | *js* |
+| `wpmvc-media` | Media implementation resources (depends on `wordpress-media-uploader`). | *js* |
 
 Samples:
 ```php
