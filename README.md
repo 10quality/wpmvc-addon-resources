@@ -109,3 +109,11 @@ wp_enqueue_style( 'font-awesome' );
 wp_enqueue_style( 'wpmvc-select2' );
 wp_enqueue_script( 'wpmvc-select2' );
 ```
+
+## Coding Guidelines
+
+PSR-2 coding guidelines.
+
+## License
+
+MIT License. (c) 2020 [10 Quality](https://www.10quality.com/).
