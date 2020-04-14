@@ -20,6 +20,19 @@ if ( !function_exists( 'wpmvc_register_addon_resource' ) ) {
      */
     function wpmvc_register_addon_resource( $resource_id )
     {
-        Resource::register( $resource_id );
+        Resource::handle( $resource_id, false );
+    }
+}
+
+if ( !function_exists( 'wpmvc_enqueue_addon_resource' ) ) {
+    /**
+     * Enqueues an asset using wp_enqueue_script and wp_enqueue_style.
+     * @since 1.0.0
+     * 
+     * @param string $resource_id
+     */
+    function wpmvc_enqueue_addon_resource( $resource_id )
+    {
+        Resource::handle( $resource_id, true );
     }
 }
