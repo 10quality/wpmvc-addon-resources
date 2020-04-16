@@ -3,16 +3,16 @@
  * @author 10 Quality <info@10quality.com>
  * @package wpmvc-addon-administrator
  * @license MIT
- * @version 1.0.0
+ * @version 1.0.1
  */
-.media.wpmvc .attachment {
+.wpmvc .name-value {
+    font-size: small;
+    color: #007cba;
+}
+.wpmvc .attachment.type-file {
+    float: none !important;
+    padding: 8px 0 !important;
     float: none !important;
     width: 100% !important;
     text-align: left !important;
-    padding: 0 !important;
-    margin-top: 5px !important;
-}
-.media.wpmvc .name-value {
-    font-size: small;
-    color: #007cba;
 }
