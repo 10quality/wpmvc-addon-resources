@@ -22,6 +22,6 @@
     "jquery-ui": "^1.12.1",
     "select2": "^4.0.13",
     "spectrum-colorpicker": "^1.8.0",
-    "wp-media-uploader": "^1.0.0"
+    "wp-media-uploader": "^1.0.1"
   }
 }

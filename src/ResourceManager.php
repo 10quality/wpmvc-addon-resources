@@ -10,7 +10,7 @@ use TenQuality\WP\File;
  * @author 10 Quality Studio <https://www.10quality.com>
  * @package wpmvc-addon-resources
  * @license MIT
- * @version 1.0.0
+ * @version 1.0.1
  */
 class ResourceManager
 {
@@ -216,7 +216,7 @@ class ResourceManager
                     'id' => $resource_id,
                     'url' =>  addon_resource_url( 'js/jquery.wp-media-uploader.min.js', __FILE__ ),
                     'dep' => ['jquery', 'jquery-ui-core', 'wp-api'],
-                    'version' => '1.0.0',
+                    'version' => '1.0.1',
                 ];
                 break;
             case 'wpmvc-media':
@@ -224,7 +224,7 @@ class ResourceManager
                     'type' => 'style',
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'css/media.css', __FILE__ ),
-                    'version' => '1.0.0',
+                    'version' => '1.0.1',
                 ];
                 $resources[] = [
                     'type' => 'script',
