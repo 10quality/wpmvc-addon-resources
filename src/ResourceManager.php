@@ -226,6 +226,13 @@ class ResourceManager
                     'url' => addon_resource_url( 'css/media.css', __FILE__ ),
                     'version' => '1.0.0',
                 ];
+                $resources[] = [
+                    'type' => 'script',
+                    'id' => $resource_id,
+                    'url' => addon_resource_url( 'js/jquery.media.js', __FILE__ ),
+                    'dep' => ['wp-media-uploader'],
+                    'version' => '1.0.6',
+                ];
                 break;
         }
         foreach ( $resources as $resource ) {

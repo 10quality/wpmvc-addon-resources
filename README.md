@@ -79,7 +79,7 @@ wpmvc_enqueue_addon_resource( $resource_id );
 | `wpmvc-colorpicker` | Colorpicker implementation resources (depends on `spectrum`). | *js* |
 | `wpmvc-datepicker` | Datepicker implementation resources (depends on `jquery-ui-datepicker`). | *js* |
 | `wpmvc-datetimepicker` | Datetimepicker implementation resources (depends on `datetimepicker`). | *js* |
-| `wpmvc-media` | Media implementation resources (depends on `wp-media-uploader`). | *css* |
+| `wpmvc-media` | Media implementation resources (depends on `wp-media-uploader`). | *css*, *js* |
 
 Samples:
 ```php
