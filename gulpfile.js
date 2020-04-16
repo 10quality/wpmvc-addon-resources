@@ -33,7 +33,7 @@ gulp.task('select2i18n', function() {
 
 gulp.task('vendorjs', gulp.series(['select2i18n'], function() {
     return gulp.src([
-            './node_modules/wordpress-media-gallery/dist/jquery.wp-media-uploader.min.js',
+            './node_modules/wp-media-uploader/dist/jquery.wp-media-uploader.min.js',
             './node_modules/spectrum-colorpicker/spectrum.js',
             './node_modules/select2/dist/js/select2.min.js',
             './node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js',

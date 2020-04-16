@@ -209,14 +209,14 @@ class ResourceManager
                     'version' => '1.0.5',
                 ];
                 break;
-            case 'wordpress-media-uploader':
+            case 'wp-media-uploader':
                 wp_enqueue_media();
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
                     'url' =>  addon_resource_url( 'js/jquery.wp-media-uploader.min.js', __FILE__ ),
-                    'dep' => ['jquery', 'jquery-ui-core'],
-                    'version' => '1.2.0',
+                    'dep' => ['jquery', 'jquery-ui-core', 'wp-api'],
+                    'version' => '1.0.0',
                 ];
                 break;
             case 'wpmvc-media':
@@ -225,13 +225,6 @@ class ResourceManager
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'css/media.css', __FILE__ ),
                     'version' => '1.0.0',
-                ];
-                $resources[] = [
-                    'type' => 'script',
-                    'id' => $resource_id,
-                    'url' => addon_resource_url( 'js/jquery.media.js', __FILE__ ),
-                    'dep' => ['wordpress-media-uploader'],
-                    'version' => '1.0.5',
                 ];
                 break;
         }

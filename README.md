@@ -35,7 +35,7 @@ composer update --no-plugins
 * [Spectrum colorpicker](https://bgrins.github.io/spectrum/) (js, css and i18n) and initializer script.
 * [Datetimepicker](https://xdsoft.net/jqplugins/datetimepicker/) (js and css) and initializer script.
 * [jQuery UI Datepicker](https://jqueryui.com/datepicker/) (css) and initializer script.
-* **WP Media uploader** (js) and initializer script.
+* [WP Media uploader](https://github.com/10quality/wp-media-uploader) (js) and scripts.
 * **Radio group** (custom css).
 * **Choose** (custom css).
 * **Switch** (custom js and css).
@@ -69,7 +69,7 @@ wpmvc_enqueue_addon_resource( $resource_id );
 | `spectrum` | Spectrum colorpicker resources. | *css*, *js* |
 | `datetimepicker` | jQuery datetimepicker resources. | *css*, *js* |
 | `jquery-ui-datepicker` | jQuery UI datepicker resources. | *css* |
-| `wordpress-media-uploader` | WordPress media uploader resources. | *js* |
+| `wp-media-uploader` | WordPress media uploader resources. | *js* |
 | `wpmvc-hideshow` | Hide and show resources. | *js* |
 | `wpmvc-repeater` | Repeater resources (depends on `wpmvc-hideshow`). | *css*, *js* |
 | `wpmvc-choose` | Choose resources. | *css* |
@@ -79,7 +79,7 @@ wpmvc_enqueue_addon_resource( $resource_id );
 | `wpmvc-colorpicker` | Colorpicker implementation resources (depends on `spectrum`). | *js* |
 | `wpmvc-datepicker` | Datepicker implementation resources (depends on `jquery-ui-datepicker`). | *js* |
 | `wpmvc-datetimepicker` | Datetimepicker implementation resources (depends on `datetimepicker`). | *js* |
-| `wpmvc-media` | Media implementation resources (depends on `wordpress-media-uploader`). | *js* |
+| `wpmvc-media` | Media implementation resources (depends on `wp-media-uploader`). | *css* |
 
 Samples:
 ```php
