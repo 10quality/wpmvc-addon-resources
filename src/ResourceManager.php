@@ -10,7 +10,7 @@ use TenQuality\WP\File;
  * @author 10 Quality Studio <https://www.10quality.com>
  * @package wpmvc-addon-resources
  * @license MIT
- * @version 1.0.1
+ * @version 1.0.2
  */
 class ResourceManager
 {
@@ -47,7 +47,7 @@ class ResourceManager
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'js/jquery.repeater.js', __FILE__ ),
                     'dep' => ['jquery', 'wpmvc-hideshow'],
-                    'version' => '1.0.5',
+                    'version' => '1.0.6',
                 ];
                 break;
             case 'wpmvc-choose':

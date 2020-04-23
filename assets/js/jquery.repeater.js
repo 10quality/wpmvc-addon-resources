@@ -4,7 +4,7 @@
  * @author 10 Quality <info@10quality.com>
  * @package wpmvc-addon-administrator
  * @license MIT
- * @version 1.0.5
+ * @version 1.0.6
  */
 ( function( $ ) { $( document ).ready( function() {
     /**
@@ -166,7 +166,7 @@
                         .attr( 'name' )
                         .replace( /^[a-zA-Z0-9\-\_]+\[|\]\[|\]/g, '' )
                         .trim();
-                    if ( index && index !== '' ) {
+                    if ( index && index !== '' && isNaN( index ) ) {
                         var $template = $( $( document ).find( '#repeater-index-tag' ).html() );
                         $template.find( '*[role="index-value"]' ).text( index );
                         $( this ).find( '*[name]' )
