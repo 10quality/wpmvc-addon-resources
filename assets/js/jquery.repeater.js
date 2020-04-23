@@ -42,7 +42,7 @@
                 $item.html( self.$template.html() );
                 $item.find( '*' ).each( function() {
                     if ( $( this ).attr( 'name' ) !== undefined ) {
-                        var name = $( this ).attr( 'name' );
+                        var name = $( this ).attr( 'name' ).replace( /\[\]/g, '[' + self.key + ']' );
                         $( this ).attr( 'name', name + '[]' );
                     }
                 } );
