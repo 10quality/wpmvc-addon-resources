@@ -1,5 +1,9 @@
 # WordPress MVC add-on resources
 
+[![Latest Stable Version](https://poser.pugx.org/10quality/wpmvc-addon-resources/v/stable)](https://packagist.org/packages/10quality/wpmvc-addon-resources)
+[![Total Downloads](https://poser.pugx.org/10quality/wpmvc-addon-resources/downloads)](https://packagist.org/packages/10quality/wpmvc-addon-resources)
+[![License](https://poser.pugx.org/10quality/wpmvc-addon-resources/license)](https://packagist.org/packages/10quality/wpmvc-addon-resources)
+
 This package provides resources (in the form of assets) that may be shared by different add-ons or WordPress MVC projects.
 
 ## Setup
