@@ -78,7 +78,7 @@ class ResourceManager
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'js/jquery.switch.js', __FILE__ ),
                     'dep' => ['jquery'],
-                    'version' => '1.0.4',
+                    'version' => '1.0.5',
                 ];
                 break;
             case 'font-awesome':

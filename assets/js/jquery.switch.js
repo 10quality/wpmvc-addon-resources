@@ -3,7 +3,7 @@
  * @author 10 Quality <info@10quality.com>
  * @package wpmvc-addon-administrator
  * @license MIT
- * @version 1.0.4
+ * @version 1.0.5
  */
 ( function( $ ) { $( document ).ready( function() {
     /**
@@ -67,8 +67,9 @@
      */
     $( document ).on( 'repeater:items.add.after', function( event, $items, key ) {
         if ( $items.find( '*[data-repeater-key="' + key + '"] .switch' ).length ) {
-            var $switch = $items.find( '*[data-repeater-key="' + key + '"] .switch' );
-            $switch.switch();
+            $items.find( '*[data-repeater-key="' + key + '"] .switch' ).each( function() {
+                $( this ).switch();
+            } );
         }
     } );
 } ); } )( jQuery );
