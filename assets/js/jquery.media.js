@@ -3,7 +3,7 @@
  * @author 10 Quality <info@10quality.com>
  * @package wpmvc-addon-resources
  * @license MIT
- * @version 1.0.6
+ * @version 1.0.7
  */
 ( function( $ ) { $( document ).ready( function() {
     /**
@@ -16,7 +16,9 @@
      */
     $( document ).on( 'repeater:items.add.after', function( event, $items, key ) {
         if ( $items.find( '*[data-repeater-key="' + key + '"] .media-uploader' ).length ) {
-            $items.find( '*[data-repeater-key="' + key + '"] .media-uploader' ).wp_media_uploader();
+            $items.find( '*[data-repeater-key="' + key + '"] .media-uploader' ).each( function() {
+                $( this ).wp_media_uploader();
+            } );
         }
     } );
     /**

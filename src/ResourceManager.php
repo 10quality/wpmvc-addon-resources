@@ -231,7 +231,7 @@ class ResourceManager
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'js/jquery.media.js', __FILE__ ),
                     'dep' => ['wp-media-uploader'],
-                    'version' => '1.0.6',
+                    'version' => '1.0.7',
                 ];
                 break;
         }
