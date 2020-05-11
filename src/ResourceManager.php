@@ -125,7 +125,7 @@ class ResourceManager
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'js/jquery.select2.js', __FILE__ ),
                     'dep' => ['jquery'],
-                    'version' => '1.0.5',
+                    'version' => '1.0.6',
                 ];
                 break;
             case 'spectrum':
@@ -158,7 +158,7 @@ class ResourceManager
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'js/jquery.colorpicker.js', __FILE__ ),
                     'dep' => ['jquery', 'spectrum'],
-                    'version' => '1.0.5',
+                    'version' => '1.0.6',
                 ];
                 break;
             case 'jquery-ui-datepicker':
