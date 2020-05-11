@@ -206,7 +206,7 @@ class ResourceManager
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'js/jquery.datetimepicker.js', __FILE__ ),
                     'dep' => ['jquery-datetimepicker'],
-                    'version' => '1.0.5',
+                    'version' => '1.0.6',
                 ];
                 break;
             case 'wp-media-uploader':
