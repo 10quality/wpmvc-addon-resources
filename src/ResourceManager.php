@@ -182,7 +182,7 @@ class ResourceManager
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'js/jquery.datepicker.js', __FILE__ ),
                     'dep' => ['jquery-ui-datepicker'],
-                    'version' => '1.0.5',
+                    'version' => '1.0.6',
                 ];
                 break;
             case 'datetimepicker':
