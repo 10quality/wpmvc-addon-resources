@@ -3,7 +3,7 @@
  * @author 10 Quality <info@10quality.com>
  * @package wpmvc-addon-administrator
  * @license MIT
- * @version 1.0.5
+ * @version 1.0.6
  */
 
 /**
@@ -108,6 +108,10 @@ function regen_id( $el, $item, group )
                             $( '*[aria-field="' + field[0] + '"][data-repeater-key="' + self.$el.data( 'repeater-key' ) + '"]' ).addClass( repeater_class );
                             field[0] = '.' + repeater_class;
                         }
+                        // Radio button
+                        if ( $( field[0] + '-' + field[1] ).length && $( field[0] + '-' + field[1] ).is( 'input[type="radio"]' ) ) {
+                            field[0] = 'input[name="' + $( 'input' + field[0] + '-' + field[1] ).attr( 'name' ) + '"]:checked';
+                        }
                         if ( !$( field[0] ).is( 'input' )
                             && !$( field[0] ).is( 'select' )
                             && !$( field[0] ).is( 'textarea' )
@@ -121,6 +125,11 @@ function regen_id( $el, $item, group )
                                 $( field[0] ).find( 'textarea' ).addClass( input_class );
                             }
                             field[0] = '.' + input_class;
+                        } else if ( field[0].match( /:|[|]|"/g ) ) {
+                            // Special characters
+                            var input_class = 'hsi-' + uniqid();
+                            $( field[0] ).addClass( input_class );
+                            field[0] = '.' + input_class;
                         }
                         self.fields[field[0]] = field[1].split( ',' );
                     } );
@@ -128,7 +137,13 @@ function regen_id( $el, $item, group )
                     if ( $( field_selector ).length === 0 )
                         continue;
                     $( field_selector ).attr( 'data-listener-' + self.id, field_selector );
-                    $( document ).on( 'change', field_selector, self.methods.on_listener );
+                    if ( $( field_selector ).is( 'input[type="radio"]' ) ) {
+                        var new_selector = 'input[name="' + $( field_selector ).attr( 'name' ) + '"]';
+                        $( new_selector ).attr( 'data-listener-' + self.id, field_selector );
+                        $( document ).on( 'change', new_selector, self.methods.on_listener );
+                    } else {
+                        $( document ).on( 'change', field_selector, self.methods.on_listener );
+                    }
                     // For on_listen
                     if ( self.$el.data( 'repeater' ) !== undefined )
                         self.methods.on_listener( undefined, $( field_selector ) );
@@ -138,6 +153,9 @@ function regen_id( $el, $item, group )
             {
                 if ( $input === undefined )
                     $input = $( this )
+                if ( $input.is( 'input[type="radio"]' ) ) {
+                    $input = $( 'input[name="' + $input.attr( 'name' ) + '"]:checked' );
+                }
                 var val = $input.val();
                 var field_selector = $input.data( 'listener-' + self.id );
                 if ( self.fields[field_selector]
@@ -184,6 +202,11 @@ function regen_id( $el, $item, group )
                             $( '*[aria-field="' + field[0] + '"][data-repeater-key="' + self.$el.data( 'repeater-key' ) + '"]' ).addClass( repeater_class );
                             field[0] = '.' + repeater_class;
                         }
+                        // Radio button
+                        if ( $( field[0] + '-' + field[1] ).length && $( field[0] + '-' + field[1] ).is( 'input[type="radio"]' ) ) {
+                            field[0] = 'input[name="' + $( 'input' + field[0] + '-' + field[1] ).attr( 'name' ) + '"]:checked';
+                        }
+                        // Regular (non <>)
                         if ( !$( field[0] ).is( 'input' )
                             && !$( field[0] ).is( 'select' )
                             && !$( field[0] ).is( 'textarea' )
@@ -197,23 +220,39 @@ function regen_id( $el, $item, group )
                                 $( field[0] ).find( 'textarea' ).addClass( input_class );
                             }
                             field[0] = '.' + input_class;
+                        } else if ( field[0].match( /:|[|]|"/g ) ) {
+                            // Special characters
+                            var input_class = 'hsi-' + uniqid();
+                            $( field[0] ).addClass( input_class );
+                            field[0] = '.' + input_class;
                         }
                         self.fields[field[0]] = field[1].split( ',' );
                     } );
                 for ( var field_selector in self.fields ) {
                     if ( $( field_selector ).length === 0 )
                         continue;
-                    $( field_selector ).attr( 'data-listener-' + self.id, field_selector );
-                    $( document ).on( 'change', field_selector, self.methods.on_listener );
+                    if ( $( field_selector ).is( 'input[type="radio"]' ) ) {
+                        var new_selector = 'input[name="' + $( field_selector ).attr( 'name' ) + '"]';
+                        $( new_selector ).attr( 'data-listener-' + self.id, field_selector );
+                        $( document ).on( 'change', new_selector, self.methods.on_listener );
+                    } else {
+                        $( field_selector ).attr( 'data-listener-' + self.id, field_selector );
+                        $( document ).on( 'change', field_selector, self.methods.on_listener );
+                    }
                     // For on_listen
                     if ( self.$el.data( 'repeater' ) !== undefined )
                         self.methods.on_listener( undefined, $( field_selector ) );
                 }
             },
-            on_listener: function()
+            on_listener: function( event, $input )
             {
-                var val = $( this ).val();
-                var field_selector = $( this ).data( 'listener-' + self.id );
+                if ( $input === undefined )
+                    $input = $( this )
+                if ( $input.is( 'input[type="radio"]' ) ) {
+                    $input = $( 'input[name="' + $input.attr( 'name' ) + '"]:checked' );
+                }
+                var val = $input.val();
+                var field_selector = $input.data( 'listener-' + self.id );
                 if ( self.fields[field_selector]
                     .find( function( value ) { return value == val; } ) !== undefined
                 ) {
