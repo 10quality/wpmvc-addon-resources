@@ -3,7 +3,7 @@
  * @author 10 Quality <info@10quality.com>
  * @package wpmvc-addon-administrator
  * @license MIT
- * @version 1.0.6
+ * @version 1.0.5
  */
 
 /**
@@ -42,7 +42,20 @@ function regen_id( $el, $item, group )
     var current_id = $el.attr( 'id' );
     var new_id = $el.attr( 'id' ) + ( group ? '-' + group : '' ) + '-' + uniqid();
     new_id = new_id.replace( /[\[\]]+/g, '' );
-    $el.attr( 'id', new_id );
+    if ( $el.length > 1 ) {
+        $el.each( function( index ) {
+            var item_id = index === 0 ? new_id : new_id + '-' + index;
+            $( this ).attr( 'id', item_id );
+            if ( $( this ).parent().is( 'label[for="' + current_id + '"]' ) ) {
+                $( this ).parent().attr( 'for', item_id );
+            }
+        } );
+    } else {
+        $el.attr( 'id', new_id );
+        if ( $el.parent().is( 'label[for="' + current_id + '"]' ) ) {
+            $el.parent().attr( 'for', new_id );
+        }
+    }
     if ( $item && $item.length ) {
         // Show if compatibility
         $item.find( '*[data-show-if]' ).each( function() {
