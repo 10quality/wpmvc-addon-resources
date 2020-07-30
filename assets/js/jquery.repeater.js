@@ -4,7 +4,7 @@
  * @author 10 Quality <info@10quality.com>
  * @package wpmvc-addon-administrator
  * @license MIT
- * @version 1.0.6
+ * @version 1.0.7
  */
 ( function( $ ) { $( document ).ready( function() {
     /**
@@ -42,8 +42,9 @@
                 $item.html( self.$template.html() );
                 $item.find( '*' ).each( function() {
                     if ( $( this ).attr( 'name' ) !== undefined ) {
-                        var name = $( this ).attr( 'name' ).replace( /\[\]/g, '[' + self.key + ']' );
-                        $( this ).attr( 'name', name + '[]' );
+                        var multidimension = $( this ).attr( 'name' ).match( /\[/g ) && $( this ).attr( 'name' ).match( /\[/g ).length;
+                        var name = $( this ).attr( 'name' ).replace( /\[\]/g, '' );
+                        $( this ).attr( 'name', name + '[' + self.key + ']' + ( multidimension ? '[]' : '' ) );
                     }
                 } );
                 $item.find( '*[id]' ).each( function() {
@@ -129,7 +130,8 @@
                     .find( '*[name]' )
                     .attr( 'name' )
                     .replace( /^[a-zA-Z0-9\-\_]+\[|\]\[|\]/g, '' );
-                self.$index_editor.find( 'input' ).val( index );
+                var key = self.$edited_field.closest( '*[data-repeater-field="1"]' ).data( 'repeater-key' );
+                self.$index_editor.find( 'input' ).val( key != index || isNaN( index ) ? index : ''  );
                 self.$index_editor.css({
                     top: self.$edited_field.offset().top - 5,
                     left: self.$edited_field.offset().left - self.$index_editor.width() - 12,
@@ -145,16 +147,23 @@
             on_index_update: function( event ) {
                 if ( event !== undefined )
                     event.preventDefault();
+                var new_index = self.methods.slugify( self.$index_editor.find( 'input' ).val() );
                 var key = self.$edited_field.closest( '*[data-repeater-field="1"]' ).data( 'repeater-key' );
-                self.$items.find( '*[data-repeater-key="' + key + '"]' ).each( function() {
-                    var name = $( this ).find( '*[name]' ).attr( 'name' );
-                    var multidimension = name.match( /\[/g ).length;
-                    name = name.replace( /\[(|[\s\S]+)\]/g, '' ) + '[' + self.methods.slugify( self.$index_editor.find( 'input' ).val() ) + ']';
-                    for ( var i = 1; i < multidimension; i++ ) {
-                        name += '[]';
-                    }
-                    $( this ).find( '*[name]' ).attr( 'name', name );
-                } );
+                if ( new_index.length === 0 )
+                    new_index = key.toString();
+                if ( new_index.length && ( isNaN( new_index ) || parseInt( new_index ) < self.key ) ) {
+                    self.$items.find( '*[data-repeater-key="' + key + '"]' ).each( function() {
+                        var name = $( this ).find( '*[name]' ).attr( 'name' );
+                        var multidimension = name.match( /\[/g ).length;
+                        name = name.replace( /\[(|[\s\S]+)\]/g, '' ) + '[' + new_index + ']';
+                        for ( var i = 1; i < multidimension; i++ ) {
+                            name += '[]';
+                        }
+                        $( this ).find( '*[name]' ).attr( 'name', name );
+                        $( this ).attr( 'data-repeater-key', new_index );
+                        $( this ).data( 'repeater-key', new_index );
+                    } );
+                }
                 self.$index_editor.hide();
                 self.methods.update_index_tags();
             },
