@@ -154,6 +154,8 @@
                 if ( new_index.length && ( isNaN( new_index ) || parseInt( new_index ) < self.key ) ) {
                     self.$items.find( '*[data-repeater-key="' + key + '"]' ).each( function() {
                         var name = $( this ).find( '*[name]' ).attr( 'name' );
+                        if ( name === undefined )
+                            return;
                         var multidimension = name.match( /\[/g ).length;
                         name = name.replace( /\[(|[\s\S]+)\]/g, '' ) + '[' + new_index + ']';
                         for ( var i = 1; i < multidimension; i++ ) {
@@ -171,6 +173,8 @@
                 self.$items.find( '*[data-repeater-field="1"]' ).each( function() {
                     // Remove any existing tag
                     $( this ).find( '.index-tag' ).remove();
+                    if ( $( this ).find( '*[name]' ).length ===0 )
+                        return;
                     var index = $( this ).find( '*[name]' )
                         .attr( 'name' )
                         .replace( /^[a-zA-Z0-9\-\_]+\[|\]\[|\]/g, '' )
