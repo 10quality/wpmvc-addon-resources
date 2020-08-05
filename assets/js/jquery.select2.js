@@ -3,7 +3,7 @@
  * @author 10 Quality <info@10quality.com>
  * @package wpmvc-addon-administrator
  * @license MIT
- * @version 1.0.6
+ * @version 1.0.7
  */
 ( function( $ ) { $( document ).ready( function() {
     /**
@@ -100,6 +100,7 @@
             scrollAfterSelect: $select2.data( 'scroll-after-select' ) !== undefined ? $( this ).data( 'scroll-after-select' ) : false,
             containerCssClass: $select2.attr( 'container-class' ) || undefined,
             language: $select2.attr( 'lang' ) || undefined,
+            width: $select2.hasClass( 'widefat' ) ? '100%' : undefined,
         } );
     } );
     /**
@@ -144,6 +145,7 @@
                     scrollAfterSelect: $select2.data( 'scroll-after-select' ) !== undefined ? $( this ).data( 'scroll-after-select' ) : false,
                     containerCssClass: $select2.attr( 'container-class' ) || undefined,
                     language: $select2.attr( 'lang' ) || undefined,
+                    width: $select2.hasClass( 'widefat' ) ? '100%' : undefined,
                 } );
             } );
         }

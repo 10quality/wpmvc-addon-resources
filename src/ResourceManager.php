@@ -118,14 +118,14 @@ class ResourceManager
                     'type' => 'style',
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'css/select2.css', __FILE__ ),
-                    'version' => '1.0.5',
+                    'version' => '1.0.4',
                 ];
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'js/jquery.select2.js', __FILE__ ),
                     'dep' => ['jquery'],
-                    'version' => '1.0.6',
+                    'version' => '1.0.7',
                 ];
                 break;
             case 'spectrum':
