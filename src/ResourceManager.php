@@ -10,7 +10,7 @@ use TenQuality\WP\File;
  * @author 10 Quality Studio <https://www.10quality.com>
  * @package wpmvc-addon-resources
  * @license MIT
- * @version 1.0.4
+ * @version 1.0.5
  */
 class ResourceManager
 {
@@ -133,14 +133,14 @@ class ResourceManager
                     'type' => 'style',
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'css/spectrum.css', __FILE__ ),
-                    'version' => '1.8.0',
+                    'version' => '1.8.1',
                 ];
                 $resources[] = [
                     'type' => 'script',
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'js/spectrum.js', __FILE__ ),
                     'dep' => ['jquery'],
-                    'version' => '1.8.0',
+                    'version' => '1.8.1',
                 ];
                 $filename = addon_resource_url( 'js/i18n/jquery.spectrum-' . $locale . '.js', __FILE__ );
                 if ( File::auth()->exists( $filename ) )
@@ -149,7 +149,7 @@ class ResourceManager
                         'id' => 'spectrum-i18n-' . $locale,
                         'url' => $filename,
                         'dep' => ['spectrum'],
-                        'version' => '1.8.0',
+                        'version' => '1.8.1',
                     ];
                 break;
             case 'wpmvc-colorpicker':
@@ -166,14 +166,14 @@ class ResourceManager
                     'type' => 'style',
                     'id' => 'jquery-ui-theme',
                     'url' => addon_resource_url( 'css/jquery-ui.theme.min.css', __FILE__ ),
-                    'version' => '1.12.1',
+                    'version' => '1.13.1',
                 ];
                 $resources[] = [
                     'type' => 'style',
                     'id' => $resource_id,
                     'url' => addon_resource_url( 'css/datepicker.css', __FILE__ ),
                     'dep' => ['jquery-ui-theme'],
-                    'version' => '1.12.1',
+                    'version' => '1.13.1',
                 ];
                 break;
             case 'wpmvc-datepicker':
@@ -216,7 +216,7 @@ class ResourceManager
                     'id' => $resource_id,
                     'url' =>  addon_resource_url( 'js/jquery.wp-media-uploader.min.js', __FILE__ ),
                     'dep' => ['jquery', 'jquery-ui-core', 'wp-api'],
-                    'version' => '1.0.1',
+                    'version' => '1.0.4',
                 ];
                 break;
             case 'wpmvc-media':

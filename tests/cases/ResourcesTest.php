@@ -2,13 +2,14 @@
 use PHPUnit\Framework\TestCase;
 /**
  * Test case.
+ * @version 1.0.5
  */
 class ResourcesTest extends TestCase
 {
     /**
      * Clear globals. 
      */
-    public function setUp()
+    public function setUp(): void
     {
         $GLOBALS['styles'] = [];
         $GLOBALS['scripts'] = [];
