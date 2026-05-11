@@ -70,6 +70,13 @@ if ( ! function_exists( 'addon_resource_url' ) ) {
         // WPML support
         if ( function_exists( 'icl_object_id' ) && defined( 'ICL_LANGUAGE_CODE' ) ) {
             $url = preg_replace( '#([a-z])/' . ICL_LANGUAGE_CODE . '#', '\\1', $url );
+            if ( strpos( $url, 'http:' ) === 0 && strpos( $url, 'http://' ) !== 0 ) {
+                $url = preg_replace( '/^http:/', 'http://', $url );
+            }
+            if ( strpos( $url, 'https:' ) === 0 && strpos( $url, 'https://' ) !== 0 ) {
+                $url = preg_replace( '/^https:/', 'https://', $url );
+            }
+            $url = rtrim( $url, '/' );
         }
         // Clean base path
         $route = preg_replace( '/.+?(?=wp-content)/', '', $route );
