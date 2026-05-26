@@ -34,6 +34,7 @@
                 }
                 self.$el.on( 'click', '*[role="repeater-remove"]', self.methods.on_remove );
                 self.$el.on( 'click', '*[role="repeater-edit-index"]', self.methods.on_index_edit );
+                self.$el.on( 'click', '*[role="repeater-toggle-indicator"]', self.methods.on_toggle );
             },
             on_add: function( event ) {
                 if ( event !== undefined )
@@ -79,9 +80,35 @@
                     $( document ).trigger( 'repeater:items.remove.after', [self.$items, key, self] );
                 }
             },
+            on_toggle: function ( event ) {
+                if ( event !== undefined )
+                    event.preventDefault();
+                var key = $( this ).closest( '*[data-repeater-field="1"]' ).data( 'repeater-key' );
+                var opened = $(this).hasClass('opened');
+                if ( key !== undefined ) {
+                    $(this).toggleClass('opened');
+                    if ( opened ) {
+                        $(this).find('i').removeClass('fa-caret-up').addClass('fa-caret-down');
+                    } else {
+                        $(this).find('i').removeClass('fa-caret-down').addClass('fa-caret-up');
+                    }
+                    var aux = 0;
+                    self.$items.find( '*[data-repeater-key="' + key + '"]' ).each(function () {
+                        if ( aux !== 0 ) {
+                            if ( opened ) {
+                                $(this).addClass('sp-hidden');
+                            } else {
+                                $(this).removeClass('sp-hidden');
+                            }
+                        }
+                        aux++;
+                    });
+                }
+            },
             init_actions: function() {
                 var keys = [];
                 self.$items.find( '*[data-repeater-field="1"]' ).each( function() {
+                    $( this ).addClass('sp-hidden');
                     var key = $( this ).data( 'repeater-key' );
                     if ( key !== undefined
                         && keys.find( function( existing ) { return existing === key; } ) === undefined
@@ -90,6 +117,7 @@
                         $( this ).find( '*[role="repeater-actions"]' ).html(
                             $( document ).find( '#repeater-actions' ).html()
                         );
+                        $( this ).removeClass('sp-hidden');
                     }
                 } );
                 // Index editor
